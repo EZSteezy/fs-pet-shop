@@ -17,17 +17,13 @@ Create and switch to a new feature branch.
 ```shell
 $ git checkout -b restful_express_routes
 ```
+In order for our application to be able to process json we need to add app.use(express.json()) to our restfulExpressServer.js
+Add this after you define the app instance. 
 
-Install `body-parser` and `morgan` as a dependencies.
-
-```shell
-$ npm install --save body-parser
-$ npm install --save morgan
 ```
-
+app.use(express.json());
+```
 # Assignment Part 1
-
-Your first task is to wire up `body-parser` and `morgan` as middleware to your express app. They will greatly help you with the rest of the assignment.
 
 Your next task is to create a RESTful Express HTTP server called `restfulExpressServer.js` to handle the create, update, and destroy HTTP commands. The route handlers must translate their respective command into an appropriate action that manages the records in the database. Once the database action is complete, the route handlers must send back an appropriate HTTP response.
 
@@ -54,7 +50,7 @@ Open a new shell tab and use the `http` shell command to send HTTP requests to y
 $ http POST localhost:8000/pets age=3 kind=parakeet name=Cornflake
 ```
 
-**Alternatively you can use [Postman](https://www.postman.com/) to test your routes**
+**Alternatively you can use [Postman](https://www.postman.com/) to test your routes, this is a great tool. When you visit the site, look for the download app link and download the appropriate version for your operating system.**
 
 When handling the `POST` HTTP request method, if `age`, `kind`, or `name` are missing from the HTTP request body or `age` is not an integer, then the data must not be added to the database and the server must send back the follow HTTP response.
 
